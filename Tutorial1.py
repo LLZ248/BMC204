@@ -1,7 +1,11 @@
 import re
-print("\033[96m",end="")
+
+print("\033[96m", end="")  # print cyan colour
 print("This a calculator that perform addition between two 8 bit floating point numbers.\n".upper())
-print("\033[00m",end="")
+print("\033[00m", end="")  # print back default colour
+
+
+# test data
 # hex1 = "C0123456"
 # hex2 = "81C564B7"
 
@@ -31,6 +35,7 @@ print(f"Second Number: {hex2}")
 num1 = int(hex1, 16)
 num2 = int(hex2, 16)
 
+# the usage of [2:] is to remove the unwanted "0b" created when using bin()
 bin1 = bin(num1)[2:].zfill(32)
 bin2 = bin(num2)[2:].zfill(32)
 
@@ -117,12 +122,19 @@ else:
     print("No need (fits in 23 bits)")
 
 print("\n8.	Assemble exponent and fraction back into floating-point format\n")
+# S
 print(f'S = {bin1[0]}')
+# E
 print(f'E = {exp} + {adjust} = {exp + adjust} = {bin(exp + adjust)[2:]}(base 2)')
+# F
 print(f'F = {F.split(".")[1]}')
+
+# binary format
 ans = bin1[0] + bin(exp + adjust)[2:] + F.split(".")[1]
 print(" ".join(re.findall("....?", ans)))
+# hexadecimal format
 ans = hex(int(ans, 2))[2:].upper()
 print("    ".join(re.findall(".", ans)))
 
+# answer
 print(f"\033[92mAnswer : Ox{ans}")
