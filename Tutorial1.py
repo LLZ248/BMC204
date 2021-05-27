@@ -7,7 +7,7 @@ print("\033[00m", end="")  # print back default colour
 
 # test data
 # hex1 = "C0123456"
-# hex2 = "81C564B7"
+# hex2 = "81C564B7"5EF10324
 
 def isValid8BitFloatingPointNumber(num):
     if len(num) != 8:
@@ -76,7 +76,7 @@ else:
     exp = exp1
     diff = exp1 - exp2
     print(f"{exp1} - {exp2} = {exp1 - exp2}, so shift N2 right by {diff} bit")
-print(f"E = {exp}")
+print(f"Use the larger exponent, E = {exp}")
 
 print("\n4.	Shift smaller mantissa if necessary\n")
 if exp1 == exp2:
